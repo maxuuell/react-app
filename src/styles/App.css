@@ -1,4 +1,12 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
 h1 {
-    color: #27aedb;
+    color: palevioletred;
     text-align: center;
 }
