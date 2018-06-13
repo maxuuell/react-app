@@ -1,22 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Landing from './components/Landing';
-import About from './components/About';
+import { Provider } from 'react-redux';
+import LandingPage from './components/Landing';
+import AboutPage from './components/About';
 import NavBar from './components/NavBar';
+import store from './redux/store';
 
 import './styles/app.css';
 
 const App = () => (
-	<BrowserRouter>
-		<div>
-			<NavBar />
-			<Switch>
-				<Route exact path="/" component={Landing} />
-				<Route path="/about" component={About} />
-			</Switch>
-		</div>
-	</BrowserRouter>
+	<Provider store={store}>
+		<BrowserRouter>
+			<div>
+				<NavBar />
+				<Switch>
+					<Route exact path="/" component={LandingPage} />
+					<Route path="/about" component={AboutPage} />
+				</Switch>
+			</div>
+		</BrowserRouter>
+	</Provider>
 );
 
 ReactDOM.render(<App />, document.getElementById('origin'));
